@@ -68,5 +68,17 @@ public class MyClassLoaderDemo extends ClassLoader{
             }
         }
     }
-
+    /*
+    对于同一个类，使用相同的自定义类加载器加载两次后将得到同一个类的不同对象，好处：
+    1.实现隔离：例如Tomcat使用此机制隔离不同的Web应用
+    2.热部署：使用ClassLoader，类只会加载一次，即使class改变了再次加载后还是原来的对象，而使用自定义classloader类，可以创建多个自定义classloader再用他加载class得到的class就是新的，从而实现动态更新。
+     */
+    public static void main(String[] args) throws ClassNotFoundException {
+        MyClassLoaderDemo c1 = new MyClassLoaderDemo();
+        String className = "";
+        Class<?> class1 = c1.findClass(className);
+        MyClassLoaderDemo c2 = new MyClassLoaderDemo();
+        Class<?> class2 = c2.findClass(className);
+        System.out.println(class1 == class2);//false
+    }
 }
