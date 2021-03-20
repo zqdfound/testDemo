@@ -6,7 +6,7 @@ import java.lang.reflect.Proxy;
 
 /**
  * @author zhuangqingdian
- * JDK 动态代理Demo
+ * JDK 动态代理Demo （反射）
  * @date 2021/3/18
  */
 public class GeneralProxyDemo {
