@@ -16,7 +16,7 @@ public class SerializableTest {
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         Worker worker = new Worker();
         worker.setName("张三");
-        worker.setSalary(13);
+        worker.setSalary(13);//transient修饰的变量无法被序列化
         oos.writeObject(worker);
         oos.flush();
         oos.close();
